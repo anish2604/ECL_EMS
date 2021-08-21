@@ -1,22 +1,37 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
   <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
-  <title>EMS | View Tasks</title>
+  <title>EMS | Assigned Tasks</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+  <script type="text/javascript"
+    src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.25/af-2.3.7/b-1.7.1/b-colvis-1.7.1/b-html5-1.7.1/b-print-1.7.1/cr-1.5.4/date-1.1.1/fh-3.1.9/kt-2.6.2/r-2.2.9/rg-1.1.3/rr-1.2.8/sc-2.0.4/sb-1.1.0/sp-1.3.0/datatables.min.js"></script>
 
   <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
 </head>
 
-<body class="bg-gray-900">
+<body translate="no" class="bg-gray-900 text-white">
 
   <div class="wrapper">
     <!-- Sidebar  -->
@@ -105,39 +120,159 @@
           <span>Menu</span>
         </button>
         <button class="flex-2 btn btn-light  btn-lg d-inline-block ml-auto" type="button">
-          <a href="/profile">Profile</a>
+          <a href="/profile"><i class="fas fa-user-alt"></i></a>
         </button>
 
       </div>
 
-      <!-- <h2>Collapsible Sidebar Using Bootstrap 4</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h1 class="text-center py-10">Assigned Tasks</h1>
+      <!--
+      <div class="container bg-blue-200 m-16 border-8"> -->
+      <div class="row px-20">
+        <div class="container bg-blue-100 rounded-2xl col-xs-12 px-10 py-10 mb-8" style="overflow-x:auto;">
+          <table class="table table-bordered border-black table-hover dt-responsive text-black w-full">
 
-        <div class="line"></div>
+            <thead>
+              <tr class="bg-gray-800 text-white text-center">
+                <th>SNo.</th>
+                <th>Task Title</th>
+                <th>Due Date</th>
+                <th>Task Description</th>
+                <th>Assigned By</th>
+              </tr>
+            </thead>
 
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Project Submission</td>
+                <td>25/08/2021</td>
+                <td>Submit the Project Report</td>
+                <td>Sudesh Kumar</td>
+              </tr>
+              <tr>
+                <td>02</td>
+                <td>Complete View Task</td>
+                <td>22/08/2021</td>
+                <td>Submit the Report</td>
+                <td>Anish Chattaraj</td>
+              </tr>
+              <tr>
+                <td>03</td>
+                <td>Complete the ER Diagram</td>
+                <td>23/08/2021</td>
+                <td>Draw the ER diagram for the project assigned</td>
+                <td>Ankita Mandal</td>
+              </tr>
+              <tr>
+                <td>04</td>
+                <td>TOC QUIZ</td>
+                <td>24/08/2021</td>
+                <td>Module 1 and 2</td>
+                <td>Viswanathan P</td>
+              </tr>
+              <tr>
+                <td>05</td>
+                <td>Motorq Seminar</td>
+                <td>22/08/2021</td>
+                <td>Attend Motorq Seminar</td>
+                <td>Motorq</td>
+              </tr>
+              <tr>
+                <td>06</td>
+                <td>PDC Review 1</td>
+                <td>25/08/2021</td>
+                <td>Submit the Project Report</td>
+                <td>Deebak BD</td>
+              </tr>
+              <tr>
+                <td>07</td>
+                <td>AI Review 1</td>
+                <td>25/08/2021</td>
+                <td>Prsent the PPT</td>
+                <td>Anto S</td>
+              </tr>
+              <tr>
+                <td>08</td>
+                <td>LSM Review 1 Phase 1</td>
+                <td>26/08/2021</td>
+                <td>Topic Discussion for Verification</td>
+                <td>Padmavathi C</td>
+              </tr>
+              <tr>
+                <td>09</td>
+                <td>Assign Task</td>
+                <td>22/08/2021</td>
+                <td>Complete View Task</td>
+                <td>Anish Chattaraj</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>Change Password</td>
+                <td>23/08/2021</td>
+                <td>Complete Change Password CSS</td>
+                <td>Anant Tiwari</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>Project Stylying</td>
+                <td>22/08/2021</td>
+                <td>Complete Full Styling of EMS Website</td>
+                <td>Sudesh Kumar</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>Project Presentation</td>
+                <td>24/08/2021</td>
+                <td>Present and explain the project</td>
+                <td>Sudesh Kumar</td>
+              </tr>
 
-        <div class="line"></div>
+              <!-- <tfoot>
+            <tr>
+              <td colspan="5" class="text-center">Data retrieved from <a href="http://www.infoplease.com/ipa/A0855611.html" target="_blank">infoplease</a> and <a href="http://www.worldometers.info/world-population/population-by-country/"
+                  target="_blank">worldometers</a>.</td>
+            </tr>
+          </tfoot> -->
 
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </table>
+        </div>
 
-        <div class="line"></div>
+          <div class="flex text-center relative mt-2 mb-16 pt-4 w-full">
+            <div class="realtive flex-1 lg:w-1/2 md:1/2 sm:1/2 mx-2">
+              <button type="back" class="mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg" onclick="goBack()">Back</button>
+            </div>
+          </div>
 
-        <h3>Lorem Ipsum Dolor</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+      </div>
+
     </div>
-  </div>
 
-  <script>
-    $(document).ready(function() {
-      $('#sidebarCollapse').on('click', function() {
-        $('#sidebar').toggleClass('active');
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+
+    <!-- Scripts for Searching and Sorting data entries -->
+
+    <script src='https://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js'></script>
+
+    <!-- End of Scripts for Searching and Sorting data entries     -->
+
+    <script id="rendered-js">
+      $('table').DataTable();
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        $('#sidebarCollapse').on('click', function() {
+          $('#sidebar').toggleClass('active');
+        });
       });
-    });
-  </script>
+    </script>
+
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-4793b73c6332f7f14a9b6bba5d5e62748e9d1bd0b5c52d7af6376f3d1c625d7e.js"></script>
 
 </body>
 

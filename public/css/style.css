@@ -311,3 +311,29 @@ input[type=number] {
 .contact-icon a:hover i {
   transform: rotate(360deg);
 }
+
+/* ---------------------------------------------------
+    TABLES
+----------------------------------------------------- */
+th {
+  text-align: center;
+  padding: 10px;
+}
+
+td {
+  text-align: justify;
+  padding: 8px;
+}
+
+table.dataTable th,
+table.dataTable td {
+  white-space: nowrap;
+}
+
+.td {
+  background-color: #CCF5F4;
+}
+
+.table-hover {
+  background-color: #EEEEEE;
+}
