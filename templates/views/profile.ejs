@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+  <title>EMS | Profile</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body class="text-gray-400 bg-gray-900 body-font relative">
+
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>ECL</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <li>
+          <a href="/dashboard">Dashboard</a>
+        </li>
+        <!-- <p>Dummy Heading</p> -->
+        <li>
+          <a href="#taskSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Manage Tasks</a>
+          <ul class="collapse list-unstyled" id="taskSubmenu">
+            <li>
+              <a href="/viewTasks">View Tasks</a>
+            </li>
+            <li>
+              <a href="/assignTask">Assign Tasks</a>
+            </li>
+            <!-- <li>
+                        <a href="#">Requests 3</a>
+                    </li> -->
+          </ul>
+        </li>
+
+        <li>
+          <a href="#requestSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Leave Requests</a>
+          <ul class="collapse list-unstyled" id="requestSubmenu">
+            <li>
+              <a href="/requestStatus">Request Status</a>
+            </li>
+            <li>
+              <a href="/submitRequests">Submit Requests</a>
+            </li>
+            <!-- <li>
+                        <a href="#">Page 3</a>
+                    </li> -->
+          </ul>
+        </li>
+        <li>
+          <a href="#rateSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee Rating</a>
+          <ul class="collapse list-unstyled" id="rateSubmenu">
+            <li>
+              <a href="/viewRating">View Rating</a>
+            </li>
+            <li>
+              <a href="/rateEmployees">Rate Employees</a>
+            </li>
+            <!-- <li>
+                        <a href="#">Page 3</a>
+                    </li> -->
+          </ul>
+        </li>
+        <li>
+          <a href="/contact">Contact</a>
+        </li>
+      </ul>
+
+      <ul class="list-unstyled CTAs">
+        <!-- <li>
+                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+            </li> -->
+        <li>
+          <a href="/logout" type="button" class="logout btn btn-danger">Logout</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" style="padding: 0;">
+
+      <div class="container-fluid flex mt-4 mb-12">
+
+        <button type="button" id="sidebarCollapse" class="flex-2 btn btn-primary btn-lg">
+          <i class="fas fa-align-left"></i>
+          <span>Menu</span>
+        </button>
+        <button class="flex-2 btn btn-light  btn-lg d-inline-block ml-auto" type="button">
+          <a href="/profile">Profile</a>
+        </button>
+
+      </div>
+
+      <h1 class="text-center pt-8 sm:text-4x1">PERSONAL INFORMATION</h1>
+
+      <div class="container pl-4 tracking-widest mb-10">
+        <div class="flex flex-col sm:ml-10 md:ml-10 lg:ml-20">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mt-20 mb-4 text-white">EMPLOYEE DETAILS</h1>
+          <div class="leading-7 pl-4">
+            <span>Name: <%=user.user.manname %></span>
+            <br>
+            <span>EIN: <%=user.user.ein %></span>
+            <br>
+            <span>Manno: <%=user.user.manno%></span>
+            <br>
+            <span>Designation: <%=user.user.desg%></span>
+            <br>
+            <span>Date of Birth: <%=user.user.dob%></span>
+            <br>
+            <span>Email ID: <%=user.user.email%></span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="container pl-4 leading-7 tracking-widest mb-10">
+          <div class="flex flex-col sm:ml-10 md:ml-10 lg:ml-20">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mt-16 mb-4 text-white">AREA DETAILS</h1>
+            <div class="leading-7 pl-4">
+              <span class="">Area Code: <%=user.areaDetails.area_code%></span>
+              <br>
+              <span>Area Name: <%=user.areaDetails.area_name%> (<%=user.areaDetails.area_abbr%>)</span>
+              <br>
+              <span>Unit Name and Code: <%=user.areaDetails.unit_name%>, <%=user.areaDetails.unit_code%></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="container pl-4 leading-7 tracking-widest mb-10">
+          <div class="flex flex-col sm:ml-10 md:ml-10 lg:ml-20">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mt-16 mb-4 text-white">DEPARTMENT DETAILS</h1>
+            <div class="leading-7 pl-4">
+              <span>Department Code: <%=user.deptDetails.dept_code%></span>
+              <br>
+              <span>Department Name: <%=user.deptDetails.dept_name%> (<%=user.deptDetails.dept_abbr%>)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex text-center relative mt-2 mb-16 pt-4 w-full">
+        <div class="realtive flex-1 lg:w-1/2 md:1/2 sm:1/2 mx-2">
+          <button type="back" class="mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg" onclick="goBack()">Back</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+
+</body>
+
+</html>

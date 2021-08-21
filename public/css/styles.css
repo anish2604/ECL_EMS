@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+html,body{
+    font-family: 'Poppins', sans-serif;
+}
+/* ::selection{
+    color: #fff;
+} */
+
+body.background-img{
+  background: url('/images/bg2.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+
+/***************** Scrollbar Styles *****************/
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #1B1717;
+}
+
+::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px #808080; */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+nav.navbar {
+  padding: 0 auto 0;
+}
+
+.navbar-brand{
+  margin-right: 0.65rem;
+}
+
+.nav-logo {
+  margin: 0;
+  height: 3.2rem;
+  width: 2.6rem;
+}
+
+.nav-login {
+  background-color: #61B25E;
+  padding: 7px 15px;
+  border-radius: 7px;
+  color: #FFF;
+}
+
+a.li {
+  margin-top: 20px;
+}
+
+.verticalLine {
+  border-left: solid #5089C6;
+}
+
+.nav-login:hover {
+  background-color: #69C34F;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.logo-label {
+  margin: 7px 0 0;
+  padding: 0 0 0 7px;
+  font-size: 1.6rem;
+}
+
+
+.container form.signup {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 999;
+  margin: 40px auto;
+  padding: 0 0;
+  width: 80%;
+}
+
+.container form.login {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 999;
+  margin: 40px auto;
+  padding: 0 0;
+  width: 40%;
+}
+
+.signup {
+  width: 40%;
+  margin: 25px auto 20px;
+  font-size: 1.2rem;
+}
+
+.signup-header {
+  margin-bottom: 3.5rem;
+  font-size: 3rem;
+}
+
+.login-link {
+  font-size: 1.2rem;
+}
+
+.login-header {
+  font-size: 3rem;
+}
+
+.login {
+  background-color: #61B25E;
+  border: none;
+}
+
+.login:hover {
+  background-color: #69C34F;
+}
+
+#datetime {
+  width: 100%;
+  position: relative;
+  margin-right: 0;
+}
+
+.main_grid1 {
+  margin: 1rem 1.8rem;
+}
+
+.wrapper {
+  width: 720px;
+  margin: 10% auto;
+}
+
+.box {
+  height: 600px;
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  margin: 0 19px;
+}
+
+.img1 {
+  position: absolute;
+  z-index: 2;
+  transition: .4s;
+  transform-origin: 50%, 50%;
+  width: 100%;
+}
+
+.img2 {
+  filter: blur(20px);
+  transform: scale(1.1);
+  opacity: 1;
+  transition: .4s;
+  width: 100%;
+}
+
+.box:hover .img1 {
+  filter: blur(20px);
+  transform: scale(1.1);
+  opacity: 0;
+}
+
+.box:hover .img2 {
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+}
+
+
+/* ************************* MEDIA QUERIES ************************* */
+
+@media (min-width: 767px) and (max-width: 1024px) {
+  .title-font {
+    font-size: 0.85rem;
+  }
+
+  .f_para:not(:last-child) {
+    font-size: 0.65rem;
+    padding-bottom: 5px;
+  }
+
+  i {
+    font-size: 0.5rem;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .container form.login {
+    width: 60%;
+  }
+}
+
+@media (min-width: 492px) and (max-width: 767px) {
+  .container form.login {
+    width: 80%;
+  }
+}
+
+@media (min-width: 639px) and (max-width: 710px) {
+  .logo-label {
+    margin: 8px 0 0;
+    font-size: 1.2rem;
+  }
+
+  .nav-logo {
+    margin: 0;
+    height: 2.8rem;
+    width: 2.3rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 639px) {
+  .logo-label {
+    margin: 8px 0 0;
+    font-size: 1.05rem;
+  }
+
+  .nav-logo {
+    margin: 0;
+    height: 2.5rem;
+    width: 2.1rem;
+  }
+
+  .footer-ecl {
+    font-size: 0.8rem;
+    position: relative;
+    bottom: 0.225rem;
+  }
+
+  .footer-para {
+    font-size: 0.5rem;
+    position: absolute;
+    bottom: 0.5;
+    left: 9rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .header-msg {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 575.5px) {
+
+/* index.php footer */
+
+  .footer-ecl {
+    font-size: 0.8rem;
+    position: relative;
+    bottom: 0.225rem;
+  }
+
+  .footer-para {
+    font-size: 0.5rem;
+    position: absolute;
+    bottom: 0.5;
+    left: 6.6rem;
+  }
+
+
+/* index.php welcome guest and date/time */
+
+  .header-msg {
+    font-size: 0.6rem;
+  }
+
+/* navbar */
+.logo-label {
+  margin: 8px 0 0;
+  font-size: 1rem;
+}
+
+.nav-logo {
+  margin: 0;
+  height: 2.5rem;
+  width: 2.1rem;
+}
+
+  /* signup container */
+
+  .container form.signup {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 999;
+    margin: 40px auto;
+    padding: 0 0;
+    width: 360px;
+  }
+
+  .signup-header {
+    font-size: 2.5rem;
+  }
+
+  .login-header {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 440px) and (max-width: 492px) {
+  .container form.login {
+    width: 360px;
+  }
+
+  .logo-label {
+    margin: 8px 0 0;
+    font-size: 0.8rem;
+  }
+
+  .nav-logo {
+    margin: 0;
+    height: 2.2rem;
+    width: 1.8rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .container form.login {
+    width: 360px;
+  }
+
+  .logo-label {
+    margin: 6px 0 0;
+    font-size: 0.625rem;
+  }
+
+  .nav-logo {
+    margin: 0;
+    height: 2rem;
+    width: 1.5rem;
+  }
+}
+
+@media (min-width: 340px) and (max-width: 396px) {
+  .header-msg {
+    font-size: 0.5rem;
+  }
+}
+
+@media (min-width: 298px) and (max-width: 340px) {
+  .header-msg {
+    font-size: 0.4rem;
+  }
+}
+
+@media (min-width: 240px) and (max-width: 297px) {
+  .header-msg {
+    font-size: 0.275rem;
+  }
+}
