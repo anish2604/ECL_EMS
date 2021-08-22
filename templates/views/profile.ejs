@@ -100,22 +100,25 @@
           <i class="fas fa-align-left"></i>
           <span>Menu</span>
         </button>
+
         <button class="flex-2 btn btn-warning  btn-lg d-inline-block ml-auto" type="button">
-          <a href="/changePassword"><i class="fas fa-key"></i> Change Password</a>
+          <a href="/changePassword"><i class="fas fa-key"></i> <span class="changePass">Change Password</span></a>
         </button>
 
       </div>
 
-      <i class="fas fa-user-circle"></i>
+      <center>
+        <div style="font-size: 24px;">
+          <i class="fas fa-user-circle fa-6x mb-2"></i>
+        </div>
+      </center>
 
-      <h1 class="text-center pt-8 sm:text-4x1">PERSONAL INFORMATION</h1>
+      <h1 class="text-center pt-8 sm:text-4x1"><%=user.user.manname %></h1>
 
       <div class="container pl-4 tracking-widest mb-10">
         <div class="flex flex-col sm:ml-10 md:ml-10 lg:ml-20">
           <h1 class="sm:text-3xl text-2xl font-medium title-font mt-20 mb-4 text-white">EMPLOYEE DETAILS</h1>
           <div class="leading-7 pl-4">
-            <span>Name: <%=user.user.manname %></span>
-            <br>
             <span>EIN: <%=user.user.ein %></span>
             <br>
             <span>Manno: <%=user.user.manno%></span>

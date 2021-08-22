@@ -160,7 +160,13 @@ app.get("/viewAssignedTasks", isAuth, auth, (req, res) => {
 })
 
 app.get("/viewMyTasks", isAuth, auth, (req, res) => {
-  res.render("viewMyTasks");
+  const user = req.session;
+  res.render("viewMyTasks",{user:user});
+})
+
+app.get("/viewAssignedTasks", isAuth, auth, (req, res) => {
+  const user = req.session;
+  res.render("viewAssignedTasks",{user:user});
 })
 
 app.get("/requestStatus", isAuth, auth, (req, res) => {
@@ -456,7 +462,7 @@ app.get("/profile", isAuth,auth, async (req, res) => {
 //Ankita's changes start
 app.get('/autocomplete/', function(req,res,next){
   var regex= new RegExp(req.query["term"], 'i');
-  var employeeFilter = Employee.find({manname:regex},{'manname':1}).sort({"updated_at":-1}).sort({"created_at":-1}).limit(50);
+  var employeeFilter = Employee.find({manname:regex},{'manname':1}).sort({"updated_at":-1}).sort({"created_at":-1}).limit(10);
   employeeFilter.exec(function(err,data){
 
     let result=[];
@@ -488,6 +494,14 @@ app.post("/dashboard", isAuth, auth,(req, res) => {
 
 app.post("/profile", isAuth, auth,(req, res) => {
   res.render("profile");
+});
+
+app.post("/viewMyTasks", isAuth, auth,(req, res) => {
+  res.render("viewMyTasks");
+});
+
+app.post("/viewAssignedTasks", isAuth, auth,(req, res) => {
+  res.render("viewAssignedTasks");
 });
 
 app.listen(PORT, () => {
