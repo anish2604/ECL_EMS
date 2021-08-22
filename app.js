@@ -19,8 +19,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const {flash} = require('express-flash-message');
 const Task = require("./src/models/Tasks");
 const Request = require("./src/models/requests");
-const Area = require("./src/models/areas");//Ankita's change
-const Department = require("./src/models/departments");//Ankita's change
+const Area = require("./src/models/areas");
+const Department = require("./src/models/departments");
 const sendEmail = require('./utils/sendEmail');
 const sendRequest = require('./utils/sendRequest');
 
@@ -41,7 +41,6 @@ const PORT = process.env.PORT || 8080;
 
 const static_path = path.join(__dirname, "./public");
 const template_path = path.join(__dirname, "./templates/views");
-// const partials_path = path.join(__dirname, "./templates/partials");
 
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(morgan("tiny"));
@@ -54,7 +53,6 @@ app.use(express.urlencoded({
 app.use(express.static(static_path));
 app.set("view engine", "ejs");
 app.set("views", template_path);
-//ejs.registerPartials(partials_path);
 
 const store = new mongoDBSession({
   uri: mongoURI,
@@ -149,7 +147,6 @@ app.get("/requestForm", isAuth, auth,(req, res) => {
   res.render("requestForm");
 })
 
-/* ****** Start of Anish's Changes ****** */
 
 app.get("/viewTasks", isAuth, auth,(req, res) => {
   res.render("viewTasks");
@@ -163,7 +160,7 @@ app.get("/viewAssignedTasks", isAuth, auth, async(req, res) => {
   //console.log(user);
   res.render("viewAssignedTasks", {title: 'Assigned Tasks', user:user});
 })
-//Ankita's changes start
+
 app.get("/viewMyTasks", isAuth, auth, async(req, res) => {
   const email=req.session.user.email;
 
@@ -182,7 +179,7 @@ app.get("/requestStatus", isAuth, auth, async(req, res) => {
   });
   res.render("requestStatus",{user:user});
 })
-//Ankita's changes end
+
 app.get("/viewRating", isAuth, auth, (req, res) => {
   res.render("viewRating");
 })
@@ -198,8 +195,6 @@ app.get("/contact", isAuth, auth, (req, res) => {
 app.get("/changePassword", isAuth, auth, (req, res) => {
   res.render("changePassword");
 })
-
-/* ****** End of Anish's Changes ****** */
 
 app.get("/logout", (req,res) => {
   req.session.destroy((err) => {
@@ -219,9 +214,6 @@ app.post('/email', (req,res) => {
   res.json({message:'Email Sent!'})
 })
 
-//
-//yhbJxOxEOoXSz9WQobn6W_o8WMeJqhgw
-//signup
 
 // app.post("/signup", async (req,res) =>{
 //     try{
@@ -266,7 +258,6 @@ app.post('/email', (req,res) => {
 //     }
 // });
 
-//login check
 
 app.post("/login", async (req, res) => {
   try {
@@ -322,9 +313,9 @@ app.post("/login", async (req, res) => {
 app.post("/assignTask", isAuth, auth, async (req, res) => {
   try {
 
-    const manname = req.body.search;//Ankita's change
+    const manname = req.body.search;
     const user = await Employee.findOne({
-      manname:manname//Ankita's change
+      manname:manname
     })
     //console.log(user.gr);
     req.session.taskTo = user;
@@ -363,8 +354,6 @@ app.post("/assignTask", isAuth, auth, async (req, res) => {
             console.log(err);
         }
 
-
-
         next();
       })
 
@@ -372,13 +361,6 @@ app.post("/assignTask", isAuth, auth, async (req, res) => {
       console.log("Unsuccessful");
       res.send("You are not allowed to assign Task to the selected user !!")
     }
-    // if (email) {
-    //   res.status(201).render("taskForm");
-    //   //console.log("password match")
-    // } else {
-    //   res.send("You are not allowed to assign Task to the selected user !!")
-    //   //console.log("password different");
-    // }
 
     next();
 
@@ -445,34 +427,13 @@ app.post("/submitRequest",isAuth, auth, async (req, res) => {
     console.log(error);
   }
 })
-//Ankita's changes start
+
 app.get("/profile", isAuth,auth, async (req, res) => {
   const user = req.session;
   res.render("profile",{user:user});
 });
-//Ankita's changes end
-//app.post('/taskForm', (req,res) => {
-//  res.render("sendEmail")
-//})
 
-// const createToken = async() =>{
-//   jwt.sign({_id:"", secretkey})
-// }
 
-// function authenticate(req,res,next){
-//       const authHeader = req.headers['authorization']
-//       const token = authHeader && authHeader.split(' ')[1]
-//       if(token==null)
-//       return res.sendStatus(401)
-
-//       jwt.verify(token, process.env.SECRET_KEY, (err,user) => {
-//         if(err) return res.sendStatus(403)
-//         req.user = user
-//         next();
-//       })
-//     }
-
-//Ankita's changes start
 app.get('/autocomplete/', function(req,res,next){
   var regex= new RegExp(req.query["term"], 'i');
   var employeeFilter = Employee.find({manname:regex},{'manname':1}).sort({"updated_at":-1}).sort({"created_at":-1}).limit(50);
@@ -498,7 +459,6 @@ app.get('/autocomplete/', function(req,res,next){
 
   });
 });
-//Ankita's changes end
 
 app.post("/dashboard", isAuth, auth,(req, res) => {
   user=req.session.user;
