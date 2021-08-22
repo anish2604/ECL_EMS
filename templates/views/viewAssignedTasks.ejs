@@ -139,111 +139,33 @@
                 <th>Task Title</th>
                 <th>Due Date</th>
                 <th>Task Description</th>
-                <th>Assigned By</th>
+                <th>Assigned To</th>
               </tr>
             </thead>
 
             <tbody>
+              <% if(user.length>0){ %>
+              <% user.forEach(function(row,i){ %>
               <tr>
-                <td>01</td>
-                <td>Project Submission</td>
-                <td>25/08/2021</td>
-                <td>Submit the Project Report</td>
-                <td>Sudesh Kumar</td>
-              </tr>
-              <tr>
-                <td>02</td>
-                <td>Complete View Task</td>
-                <td>22/08/2021</td>
-                <td>Submit the Report</td>
-                <td>Anish Chattaraj</td>
-              </tr>
-              <tr>
-                <td>03</td>
-                <td>Complete the ER Diagram</td>
-                <td>23/08/2021</td>
-                <td>Draw the ER diagram for the project assigned</td>
-                <td>Ankita Mandal</td>
-              </tr>
-              <tr>
-                <td>04</td>
-                <td>TOC QUIZ</td>
-                <td>24/08/2021</td>
-                <td>Module 1 and 2</td>
-                <td>Viswanathan P</td>
-              </tr>
-              <tr>
-                <td>05</td>
-                <td>Motorq Seminar</td>
-                <td>22/08/2021</td>
-                <td>Attend Motorq Seminar</td>
-                <td>Motorq</td>
-              </tr>
-              <tr>
-                <td>06</td>
-                <td>PDC Review 1</td>
-                <td>25/08/2021</td>
-                <td>Submit the Project Report</td>
-                <td>Deebak BD</td>
-              </tr>
-              <tr>
-                <td>07</td>
-                <td>AI Review 1</td>
-                <td>25/08/2021</td>
-                <td>Prsent the PPT</td>
-                <td>Anto S</td>
-              </tr>
-              <tr>
-                <td>08</td>
-                <td>LSM Review 1 Phase 1</td>
-                <td>26/08/2021</td>
-                <td>Topic Discussion for Verification</td>
-                <td>Padmavathi C</td>
-              </tr>
-              <tr>
-                <td>09</td>
-                <td>Assign Task</td>
-                <td>22/08/2021</td>
-                <td>Complete View Task</td>
-                <td>Anish Chattaraj</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>Change Password</td>
-                <td>23/08/2021</td>
-                <td>Complete Change Password CSS</td>
-                <td>Anant Tiwari</td>
-              </tr>
-              <tr>
-                <td>11</td>
-                <td>Project Stylying</td>
-                <td>22/08/2021</td>
-                <td>Complete Full Styling of EMS Website</td>
-                <td>Sudesh Kumar</td>
-              </tr>
-              <tr>
-                <td>12</td>
-                <td>Project Presentation</td>
-                <td>24/08/2021</td>
-                <td>Present and explain the project</td>
-                <td>Sudesh Kumar</td>
+                <td class="text-center"><%= i+1 %></td>
+                <td class="text-center"><%= row.taskTitle %></td>
+                <td class="text-center"><%= row.taskDate %></td>
+                <td class="text-center"><%= row.taskDetails %></td>
+                <td class="text-center"><%= row.taskTo %></td>
               </tr>
 
-              <!-- <tfoot>
-            <tr>
-              <td colspan="5" class="text-center">Data retrieved from <a href="http://www.infoplease.com/ipa/A0855611.html" target="_blank">infoplease</a> and <a href="http://www.worldometers.info/world-population/population-by-country/"
-                  target="_blank">worldometers</a>.</td>
-            </tr>
-          </tfoot> -->
+              <% }) %>
+              <% } %>
+            </tbody>
 
           </table>
         </div>
 
-          <div class="flex text-center relative mt-2 mb-16 pt-4 w-full">
-            <div class="realtive flex-1 lg:w-1/2 md:1/2 sm:1/2 mx-2">
-              <button type="back" class="mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg" onclick="goBack()">Back</button>
-            </div>
+        <div class="flex text-center relative mt-2 mb-16 pt-4 w-full">
+          <div class="realtive flex-1 lg:w-1/2 md:1/2 sm:1/2 mx-2">
+            <button type="back" class="mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg" onclick="goBack()">Back</button>
           </div>
+        </div>
 
       </div>
 

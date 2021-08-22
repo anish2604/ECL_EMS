@@ -145,110 +145,20 @@
             </thead>
 
             <tbody>
+              <% if(user.length>0){ %>
+                <% user.forEach(function(row,i){ %>
+                  <tr>
+                    <td class="text-center"><%= i+1 %></td>
+                    <td class="text-center"><%= row.name %></td>
+                    <td class="text-center"><%= row.leaveType %></td>
+                    <td class="text-center"><%= row.leaveFrom %></td>
+                    <td class="text-center"><%= row.leaveTill %></td>
+                    <td class="text-center"><%= row.leaveReason %></td>
+                  </tr>
 
-                <tr>
-                  <td>01</td>
-                  <td>Anish Chattaraj</td>
-                  <td>Casual Leave</td>
-                  <td>20/08/2021</td>
-                  <td>26/08/2021</td>
-                  <td>Trip to Goa</td>
-                </tr>
-                <tr>
-                  <td>02</td>
-                  <td>Ankita Mandal</td>
-                  <td>Casual Leave</td>
-                  <td>23/08/2021</td>
-                  <td>27/08/2021</td>
-                  <td>Occasion at Home</td>
-                </tr>
-                <tr>
-                  <td>03</td>
-                  <td>Anant Tiwari</td>
-                  <td>Sick Leave</td>
-                  <td>21/08/2021</td>
-                  <td>24/08/2021</td>
-                  <td>High Fever</td>
-                </tr>
-                <tr>
-                  <td>04</td>
-                  <td>Anish Kumar</td>
-                  <td>Casual Leave</td>
-                  <td>22/08/2021</td>
-                  <td>29/08/2021</td>
-                  <td>Puja at Home</td>
-                </tr>
-                <tr>
-                  <td>05</td>
-                  <td>Subham Singh</td>
-                  <td>Others</td>
-                  <td>24/08/2021</td>
-                  <td>26/08/2021</td>
-                  <td>Personal Work</td>
-                </tr>
-                <tr>
-                  <td>06</td>
-                  <td>Sparsh Anand</td>
-                  <td>Sick Leave</td>
-                  <td>21/08/2021</td>
-                  <td>26/08/2021</td>
-                  <td>Cough and Cold</td>
-                </tr>
-                <tr>
-                  <td>07</td>
-                  <td>Shreya Chatterjee</td>
-                  <td>Casual Leave</td>
-                  <td>22/08/2021</td>
-                  <td>27/08/2021</td>
-                  <td>Sister's Wedding</td>
-                </tr>
-                <tr>
-                  <td>08</td>
-                  <td>Ankita Roy</td>
-                  <td>Sick Leave</td>
-                  <td>21/08/2021</td>
-                  <td>23/08/2021</td>
-                  <td>Fever</td>
-                </tr>
-                <tr>
-                  <td>09</td>
-                  <td>Ayan Mahanto</td>
-                  <td>Casual Leave</td>
-                  <td>20/08/2021</td>
-                  <td>26/08/2021</td>
-                  <td>Trip to Goa</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>Nikhil Juneja</td>
-                  <td>Others</td>
-                  <td>23/08/2021</td>
-                  <td>26/08/2021</td>
-                  <td>Personal Work</td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                  <td>Tanisha Ganguly</td>
-                  <td>Sick Leave</td>
-                  <td>21/08/2021</td>
-                  <td>12/09/2021</td>
-                  <td>Jaundice</td>
-                </tr>
-                <tr>
-                  <td>12</td>
-                  <td>Mayank Tiwary</td>
-                  <td>Others</td>
-                  <td>27/08/2021</td>
-                  <td>03/09/2021</td>
-                  <td>Cousion's Wedding</td>
-                </tr>
-
-              <!-- <tfoot>
-            <tr>
-              <td colspan="5" class="text-center">Data retrieved from <a href="http://www.infoplease.com/ipa/A0855611.html" target="_blank">infoplease</a> and <a href="http://www.worldometers.info/world-population/population-by-country/"
-                  target="_blank">worldometers</a>.</td>
-            </tr>
-          </tfoot> -->
+                <% }) %>
+              <% } %>
+            </tbody>
 
           </table>
         </div>

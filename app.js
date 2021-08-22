@@ -149,30 +149,40 @@ app.get("/requestForm", isAuth, auth,(req, res) => {
   res.render("requestForm");
 })
 
-/* **************** Start of Anish's Changes ****************** */
+/* ****** Start of Anish's Changes ****** */
 
 app.get("/viewTasks", isAuth, auth,(req, res) => {
   res.render("viewTasks");
 })
 
-app.get("/viewAssignedTasks", isAuth, auth, (req, res) => {
-  res.render("viewAssignedTasks");
+app.get("/viewAssignedTasks", isAuth, auth, async(req, res) => {
+  const email=req.session.user.email;
+  const user = await Task.find({
+    taskFrom: email
+  })
+  //console.log(user);
+  res.render("viewAssignedTasks", {title: 'Assigned Tasks', user:user});
 })
+//Ankita's changes start
+app.get("/viewMyTasks", isAuth, auth, async(req, res) => {
+  const email=req.session.user.email;
 
-app.get("/viewMyTasks", isAuth, auth, (req, res) => {
-  const user = req.session;
-  res.render("viewMyTasks",{user:user});
+  const user = await Task.find({
+    taskTo: email
+  });
+  //console.log(user);
+  res.render("viewMyTasks",{title:'My Tasks', user:user});
+});
+
+
+app.get("/requestStatus", isAuth, auth, async(req, res) => {
+  email = req.session.user.email;
+  const user = await Request.find({
+    requestFrom: email
+  });
+  res.render("requestStatus",{user:user});
 })
-
-app.get("/viewAssignedTasks", isAuth, auth, (req, res) => {
-  const user = req.session;
-  res.render("viewAssignedTasks",{user:user});
-})
-
-app.get("/requestStatus", isAuth, auth, (req, res) => {
-  res.render("requestStatus");
-})
-
+//Ankita's changes end
 app.get("/viewRating", isAuth, auth, (req, res) => {
   res.render("viewRating");
 })
@@ -189,7 +199,7 @@ app.get("/changePassword", isAuth, auth, (req, res) => {
   res.render("changePassword");
 })
 
-/* **************** End of Anish's Changes ****************** */
+/* ****** End of Anish's Changes ****** */
 
 app.get("/logout", (req,res) => {
   req.session.destroy((err) => {
@@ -411,6 +421,9 @@ app.post("/submitRequest",isAuth, auth, async (req, res) => {
               const requ = new Request({
                 requestTo : to,
                 requestFrom : req.session.user.email,
+                name: req.session.user.manname,
+                leaveTill : leaveTill,
+                leaveFrom: leaveFrom,
                 leaveType : rtype,
                 leaveReason : rmessage
             })
@@ -462,7 +475,7 @@ app.get("/profile", isAuth,auth, async (req, res) => {
 //Ankita's changes start
 app.get('/autocomplete/', function(req,res,next){
   var regex= new RegExp(req.query["term"], 'i');
-  var employeeFilter = Employee.find({manname:regex},{'manname':1}).sort({"updated_at":-1}).sort({"created_at":-1}).limit(10);
+  var employeeFilter = Employee.find({manname:regex},{'manname':1}).sort({"updated_at":-1}).sort({"created_at":-1}).limit(50);
   employeeFilter.exec(function(err,data){
 
     let result=[];
@@ -494,14 +507,6 @@ app.post("/dashboard", isAuth, auth,(req, res) => {
 
 app.post("/profile", isAuth, auth,(req, res) => {
   res.render("profile");
-});
-
-app.post("/viewMyTasks", isAuth, auth,(req, res) => {
-  res.render("viewMyTasks");
-});
-
-app.post("/viewAssignedTasks", isAuth, auth,(req, res) => {
-  res.render("viewAssignedTasks");
 });
 
 app.listen(PORT, () => {

@@ -10,6 +10,18 @@ const requestSchema = new mongoose.Schema({
         type:String,
         required: true
     },
+    name :{
+        type: String,
+        required: true
+    },
+    leaveTill:{
+        type: Date,
+        required: true
+    },
+    leaveFrom:{
+        type:Date,
+        required: true
+    },
     leaveType :{
         type:String,
         required: true
