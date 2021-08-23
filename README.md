@@ -6,5 +6,5 @@ Tech used:
 - Javascript 
 - Bootstrap 
 - Node.js
-- express.js
+- Express.js
 - MongoDB
