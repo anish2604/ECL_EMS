@@ -186,6 +186,38 @@ a.li {
 }
 
 
+/* *********************** CONTACT US BUTTON INDEX PAGE ************************ */
+
+#hp-ctn-howItWorks {
+    padding:0px 0px 0px 0px;
+    text-align: center;
+    margin:0px;
+    width: 140px;
+    height:40px;
+    background:#429BF5;
+    z-index:15;
+    border-radius: 5px 5px 0px 0px;
+    -moz-transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+    -webkit-transform:rotate(-90deg);
+    transform-origin: bottom right;
+    position: fixed;
+    right: 0px;
+}
+
+#hp-ctn-howItWorks:hover {
+  background:#3D8EE0;
+}
+
+#hp-ctn-howItWorks p {
+    color:#fff;
+    display:inline-block;
+    line-height:40px;
+}
+
+
+
 /* ************************* MEDIA QUERIES ************************* */
 
 @media (min-width: 767px) and (max-width: 1024px) {

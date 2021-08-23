@@ -186,10 +186,14 @@ app.get("/viewRating", isAuth, auth, (req, res) => {
 app.get("/rateEmployees", isAuth, auth, (req, res) => {
   res.render("rateEmployees");
 })
+
 app.get("/contact",isAuth,auth, (req,res) =>{
   res.render("contact");
 })
 
+// app.get("/contact_modal", (req,res) =>{
+//   res.render("contact_modal");
+// })
 
 app.get("/changePassword", isAuth, auth, (req, res) => {
   res.render("changePassword");
@@ -508,25 +512,25 @@ app.post("/changePassword", async (req, res, next) => {
       curr_Password = parseInt(curr_Password);
       console.log(curr_Password);
 
-      
+
 
       if (hash1 == curr_Password){
         if(new_Password == con_Password){
           user.password = new_Password;
           user.save(function(err, user) {
-            if (err){ 
+            if (err){
             return console.error(err);
             }
             //res.render("changePassword");
             else
-            { 
+            {
               res.redirect("/dashboard");
               next();
             }
-        
+
             console.log(user.manname + "! your password is successfully updated.");
           });
-          
+
         }
         else{
           console.log("New and Confirm Password does not match!!");
@@ -544,7 +548,7 @@ app.post("/changePassword", async (req, res, next) => {
       console.log("User does not exist!!");
       res.send("Employee does not exist!!");
     }
-  
+
     // if (email) {
     //   res.status(201).render("taskForm");
     //   //console.log("password match")
@@ -553,7 +557,7 @@ app.post("/changePassword", async (req, res, next) => {
     //   //console.log("password different");
     // }
 
-  
+
 
   }
    catch (error) {
