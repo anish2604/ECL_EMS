@@ -21,8 +21,10 @@ const Task = require("./src/models/Tasks");
 const Request = require("./src/models/requests");
 const Area = require("./src/models/areas");
 const Department = require("./src/models/departments");
+const Contact = require("./src/models/contacts");
 const sendEmail = require('./utils/sendEmail');
 const sendRequest = require('./utils/sendRequest');
+const contactUS = require('./utils/contactUS');
 
 const mongoURI = process.env.MONGO_CONNECT;
 
@@ -139,9 +141,6 @@ app.get("/taskForm", isAuth, auth,(req, res) => {
   res.render("taskForm");
 })
 
-app.get("/assignRequests", isAuth, auth, (req, res) => {
-  res.render("assignRequests");
-})
 
 app.get("/requestForm", isAuth, auth,(req, res) => {
   res.render("requestForm");
@@ -187,14 +186,16 @@ app.get("/viewRating", isAuth, auth, (req, res) => {
 app.get("/rateEmployees", isAuth, auth, (req, res) => {
   res.render("rateEmployees");
 })
-
-app.get("/contact", isAuth, auth, (req, res) => {
+app.get("/contact",isAuth,auth, (req,res) =>{
   res.render("contact");
 })
+
 
 app.get("/changePassword", isAuth, auth, (req, res) => {
   res.render("changePassword");
 })
+
+
 
 app.get("/logout", (req,res) => {
   req.session.destroy((err) => {
@@ -428,6 +429,33 @@ app.post("/submitRequest",isAuth, auth, async (req, res) => {
   }
 })
 
+
+  app.post("/contactUS", async(req, res, next) => {
+    const {name, email, message} = req.body;
+    const from = 'ecl.ems2021@gmail.com';
+    const to = email;
+    const output = `
+    <p style="font-size: 1.25em; color: #000;">Thank You ${name} for contacting us!</p>
+    <p style="color: #000;">We have received your message and will get back to you shortly</p>
+     `
+     contactUS(to, from, 'ECL_EMS contact team', output)
+     res.status(201).redirect("contact");
+     try{
+          const con = new Contact({
+            name : name,
+            email : email,
+            message : message
+        })
+      const ContactAdded = await con.save();
+      console.log("Contact Details Added!"+ContactAdded);
+    } catch(err){
+        console.log(err);
+    }
+
+    next();
+  })
+
+
 app.get("/profile", isAuth,auth, async (req, res) => {
   const user = req.session;
   res.render("profile",{user:user});
@@ -459,6 +487,81 @@ app.get('/autocomplete/', function(req,res,next){
 
   });
 });
+
+
+app.post("/changePassword", async (req, res, next) => {
+  try {
+
+    const eid = req.body.empid;
+    var curr_Password = await req.body.currpassword;
+    const new_Password = req.body.newpassword;
+    const con_Password = req.body.conpassword;
+
+    const user = await Employee.findOne({
+      ein:eid
+    })
+   // console.log(user.gr);
+    if (user != null){
+       var hash1 = user.password;
+       console.log(hash1);
+
+      curr_Password = parseInt(curr_Password);
+      console.log(curr_Password);
+
+      
+
+      if (hash1 == curr_Password){
+        if(new_Password == con_Password){
+          user.password = new_Password;
+          user.save(function(err, user) {
+            if (err){ 
+            return console.error(err);
+            }
+            //res.render("changePassword");
+            else
+            { 
+              res.redirect("/dashboard");
+              next();
+            }
+        
+            console.log(user.manname + "! your password is successfully updated.");
+          });
+          
+        }
+        else{
+          console.log("New and Confirm Password does not match!!");
+          res.send("New and Confirm Password does not match!!");
+        }
+
+        }
+      else{
+        console.log("Current Password does not match!!");
+        res.send("Current Password does not match!!");
+      }
+
+    }
+    else {
+      console.log("User does not exist!!");
+      res.send("Employee does not exist!!");
+    }
+  
+    // if (email) {
+    //   res.status(201).render("taskForm");
+    //   //console.log("password match")
+    // } else {
+    //   res.send("You are not allowed to assign Task to the selected user !!")
+    //   //console.log("password different");
+    // }
+
+  
+
+  }
+   catch (error) {
+    res.status(400).send("User doesnot exist !");
+    console.log(error);
+  }
+});
+
 
 app.post("/dashboard", isAuth, auth,(req, res) => {
   user=req.session.user;
