@@ -45,13 +45,73 @@
   <!-- end of navbar -->
 
 
-      <!-- Start of Contact Button -->
+  <!-- Start of Contact Button -->
 
-      <div id="hp-ctn-howItWorks">
-        <p><a href="contact_modal" class="text-white text-decoration:none hover:text-white hover:no-underline">Contact Us</a></p>
+  <div id="hp-ctn-howItWorks">
+    <p><a href="contact_modal" type="button" class="text-white text-decoration:none hover:text-white hover:no-underline" data-toggle="modal" data-target="#exampleModalLong">Contact Us</a></p>
+  </div>
+
+  <!-- End of Contact Button -->
+
+  <!-- Start of Modal -->
+
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content text-white">
+        <div class="modal-header bg-gray-800">
+          <h3 class="modal-title" id="exampleModalLongTitle">Get in Touch</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><i class="far fa-times-circle text-gray-100"></i></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <section class="text-gray-100 body-font relative">
+            <div class="container px-5 pt-8 pb-24 mx-auto">
+              <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl md:text-5xl title-font font-medium mb-4 text-gray-100">Get in Touch</h1>
+              </div>
+              <form class="" action="/contactUS_index" method="post">
+                <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                  <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/2">
+                      <div class="relative">
+                        <label for="name" class="leading-7 text-lg text-gray-200">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your Full Name"
+                          class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                          required>
+                      </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                      <div class="relative">
+                        <label for="email" class="leading-7 text-lg text-gray-200">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your Email id"
+                          class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                          required>
+                      </div>
+                    </div>
+                    <div class="p-2 w-full">
+                      <div class="relative">
+                        <label for="message" class="leading-7 mt-3 text-lg text-gray-200">Message</label>
+                        <textarea id="message" name="message" placeholder="Enter your Query"
+                          class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                          required></textarea>
+                      </div>
+                    </div>
+                    <div class="p-2 w-full">
+                      <button class="flex mx-auto mt-4 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+
       </div>
+    </div>
+  </div>
 
-      <!-- End of Contact Button -->
+  <!-- End of Modal -->
 
   <!--start of welcome guest and date/time-->
 
@@ -110,9 +170,73 @@
 
   <!-- end of content -->
 
+  <!-- Start of Carousel -->
+
+  <section class="text-gray-700 body-font" style="background-color: #E1E5EA;">
+    <div class="container px-5 pt-12 pb-12 mb-20 mx-auto">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="mt-20 active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1" class="mt-20"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2" class="mt-20"></li>
+        </ol>
+        <div class="carousel-inner" style="height: 360px;">
+          <div class="carousel-item active">
+            <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-500 mb-8" viewBox="0 0 975.036 975.036">
+                <path
+                  d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                </path>
+              </svg>
+              <h3 class="pb-4 text-3xl">Employee Management System</h3>
+              <p class="leading-relaxed text-lg">It is specially developed for employees to manage tasks and leave requests in one place. Employees can assign tasks to other employees
+                based on workplace hierarchy and can view tasks assigned to and by an employee. They can also apply and view leave requests. It helps you to manage time and maintain records more efficiently.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-500 mb-8" viewBox="0 0 975.036 975.036">
+                <path
+                  d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                </path>
+              </svg>
+              <h3 class="pb-4 text-3xl">MISSION OF COAL INDIA</h3>
+              <p class="leading-relaxed text-lg">To produce and market the planned quantity of coal and coal products efficiently and economically in an eco-friendly manner with due regard to safety, quality and conservation.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-500 mb-8" viewBox="0 0 975.036 975.036">
+                <path
+                  d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                </path>
+              </svg>
+              <h3 class="pb-4 text-3xl">VISION OF COAL INDIA</h3>
+              <p class="leading-relaxed text-lg">To emerge as a global player in the primary energy sector committed to provide energy curity to the country by attaining environmentally & socially sustainable growth through best practices from mine
+                to market.</p>
+            </div>
+          </div>
+
+        </div>
+        <a class="carousel-control-prev pr-20" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <i class="fas fa-less-than fa-lg text-gray-700 hover:text-gray-800" aria-hidden="true"></i>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next pl-20" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <i class="fas fa-greater-than fa-lg text-gray-700 hover:text-gray-800" aria-hidden="true"></i>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- End of Carousel -->
+
   <!-- Start of EMS Description -->
 
-  <section class="text-gray-600 body-font bg-gray-900">
+  <!-- <section class="text-gray-600 body-font bg-gray-900">
     <div class="container px-5 pt-12 pb-12 mb-20 mx-auto">
       <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-400 mb-8" viewBox="0 0 975.036 975.036">
@@ -123,11 +247,9 @@
         <p class="leading-relaxed text-lg">EMS stands for Employee Management System. This is a portal specially developed for employees to help them manage tasks and leave requests in one place. Employees can assign tasks to other employees based on
           workplace hierarchy and also view status of tasks assigned to and assigned by the employee. Employees can also apply for and view leave requests. EMS helps you to manage time and maintain records more efficiently.</p>
         <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"></span>
-        <!-- <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">HOLDEN CAULFIELD</h2>
-        <p class="text-gray-500">Senior Product Designer</p> -->
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- End of EMS Description -->
 

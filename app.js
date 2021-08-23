@@ -25,6 +25,7 @@ const Contact = require("./src/models/contacts");
 const sendEmail = require('./utils/sendEmail');
 const sendRequest = require('./utils/sendRequest');
 const contactUS = require('./utils/contactUS');
+const contactUS_index = require('./utils/contactUS_index');
 
 const mongoURI = process.env.MONGO_CONNECT;
 
@@ -386,6 +387,7 @@ app.post("/submitRequest",isAuth, auth, async (req, res) => {
     req.session.ReqTo = user;
     rank = user.gr.substr(1);
     console.log(rank);
+    const receiver = user.manname;
     //console.log(req.session.user);
     //console.log(req.session.rank);
 
@@ -409,6 +411,7 @@ app.post("/submitRequest",isAuth, auth, async (req, res) => {
                 requestTo : to,
                 requestFrom : req.session.user.email,
                 name: req.session.user.manname,
+                receiver: receiver,
                 leaveTill : leaveTill,
                 leaveFrom: leaveFrom,
                 leaveType : rtype,
@@ -575,6 +578,35 @@ app.post("/dashboard", isAuth, auth,(req, res) => {
 app.post("/profile", isAuth, auth,(req, res) => {
   res.render("profile");
 });
+
+app.post("/", (req, res) => {
+  res.render("/");
+});
+
+app.post("/contactUS_index", async(req, res, next) => {
+  const {name, email, message} = req.body;
+  const from = 'ecl.ems2021@gmail.com';
+  const to = email;
+  const output = `
+  <p style="font-size: 1.25em; color: #000;">Thank You ${name} for contacting us!</p>
+  <p style="color: #000;">We have received your message and will get back to you shortly</p>
+   `
+   contactUS_index(to, from, 'ECL_EMS contact team', output)
+   res.status(201).redirect("/");
+   try{
+        const con = new Contact({
+          name : name,
+          email : email,
+          message : message
+      })
+    const ContactAdded = await con.save();
+    console.log("Contact Details Added!"+ContactAdded);
+  } catch(err){
+      console.log(err);
+  }
+
+  next();
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

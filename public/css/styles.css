@@ -14,6 +14,9 @@ body.background-img{
 }
 
 
+
+
+
 /***************** Scrollbar Styles *****************/
 
 ::-webkit-scrollbar {
@@ -310,6 +313,50 @@ a.li {
     left: 6.6rem;
   }
 
+  /* carousel */
+
+  @media (max-width: 1024px){
+    .carousel-inner {
+      height: 400px !important;
+    }
+  }
+
+  @media (min-width:485px) and (max-width: 767px){
+    .carousel-inner {
+      height: 440px !important;
+    }
+  }
+
+  @media (min-width:448px) and (max-width: 484px){
+    .carousel-inner {
+      height: 480px !important;
+    }
+  }
+
+  @media (min-width:422px) and (max-width: 448px){
+    .carousel-inner {
+      height: 540px !important;
+    }
+  }
+
+  @media (min-width:399px) and (max-width: 422px){
+    .carousel-inner {
+      height: 580px !important;
+    }
+  }
+
+  @media (min-width:370px) and (max-width: 398px){
+    .carousel-inner {
+      height: 620px !important;
+    }
+  }
+
+  @media (min-width:357px) and (max-width: 369px){
+    .carousel-inner {
+      height: 620px !important;
+    }
+  }
+  
 
 /* index.php welcome guest and date/time */
 

@@ -127,7 +127,7 @@
 
       </div>
 
-      <h1 class="text-center py-10">Leave Requests</h1>
+      <h1 class="text-center py-10">My Leave Requests</h1>
       <!--
       <div class="container bg-blue-200 m-16 border-8"> -->
       <div class="row px-20">
@@ -137,7 +137,7 @@
             <thead>
               <tr class="bg-gray-800 text-white text-center">
                 <th>SNo.</th>
-                <th>Name</th>
+                <th>Recepient</th>
                 <th>Leave Type</th>
                 <th>From</th>
                 <th>To</th>
@@ -150,7 +150,7 @@
                 <% user.forEach(function(row,i){ %>
                   <tr>
                     <td class="text-center"><%= i+1 %></td>
-                    <td class="text-center"><%= row.name %></td>
+                    <td class="text-center"><%= row.receiver %></td>
                     <td class="text-center"><%= row.leaveType %></td>
                     <td class="text-center"><%= row.leaveFrom %></td>
                     <td class="text-center"><%= row.leaveTill %></td>

@@ -14,6 +14,10 @@ const requestSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    receiver:{
+        type: String,
+        required: true
+    },
     leaveTill:{
         type: Date,
         required: true
