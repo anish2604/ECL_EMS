@@ -113,7 +113,7 @@ app.get("/assignTask", isAuth, auth, (req, res) => {
 
 app.get("/submitRequest", isAuth, auth, (req, res) => {
   //console.log(`this is the cookie used here ${req.cookies.jwt}`);
-  res.render("submitRequest");
+  res.render("submitRequest", {message : req.flash('message')});
 
 })
 
@@ -378,8 +378,8 @@ app.post("/assignTask", isAuth, auth, async (req, res) => {
 
     } else {
       console.log("Unsuccessful");
-      req.flash('message', 'You are not allowed to assign Task to the selected user !!');
-      res.redirect("/assignTask")
+      req.flash('message', 'You are not allowed to assign Task to the selected user !! Please try with anyone else');
+      res.redirect("/assignTask");
     }
 
     next();
@@ -440,7 +440,8 @@ app.post("/submitRequest",isAuth, auth, async (req, res) => {
       })
     } else {
       console.log("Unsuccessful");
-      res.send("You cannot submit request to given Email id!")
+      req.flash('message', 'You are not allowed to send leave request to the selected user !! Please try with anyone else');
+      res.redirect("/assignTask");
     }
     next();
 

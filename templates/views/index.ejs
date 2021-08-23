@@ -55,35 +55,32 @@
 
   <!-- Start of Modal -->
 
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade relative" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content text-white">
-        <div class="modal-header bg-gray-800">
-          <h3 class="modal-title" id="exampleModalLongTitle">Get in Touch</h3>
+        <div class="modal-header rounded-xl bg-gray-800">
+          <h3 class="modal-title pl-6" id="exampleModalLongTitle">Get in Touch</h3>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true"><i class="far fa-times-circle text-gray-100"></i></span>
           </button>
         </div>
-        <div class="modal-body">
-          <section class="text-gray-100 body-font relative">
-            <div class="container px-5 pt-8 pb-24 mx-auto">
-              <div class="flex flex-col text-center w-full mb-12">
-                <h1 class="sm:text-3xl md:text-5xl title-font font-medium mb-4 text-gray-100">Get in Touch</h1>
-              </div>
+        <div class="modal-body bg-gray-200">
+          <section class="text-gray-400 body-font">
+            <div class="container px-4 py-8 mx-auto">
               <form class="" action="/contactUS_index" method="post">
-                <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                <div class="lg:w-full md:w-full mx-auto">
                   <div class="flex flex-wrap -m-2">
-                    <div class="p-2 w-1/2">
+                    <div class="p-2 w-full">
                       <div class="relative">
-                        <label for="name" class="leading-7 text-lg text-gray-200">Name</label>
+                        <label for="name" class="leading-7 text-lg text-gray-700">Name</label>
                         <input type="text" id="name" name="name" placeholder="Enter your Full Name"
                           class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                           required>
                       </div>
                     </div>
-                    <div class="p-2 w-1/2">
+                    <div class="p-2 w-full">
                       <div class="relative">
-                        <label for="email" class="leading-7 text-lg text-gray-200">Email</label>
+                        <label for="email" class="leading-7 text-lg text-gray-700">Email</label>
                         <input type="email" id="email" name="email" placeholder="Enter your Email id"
                           class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                           required>
@@ -91,7 +88,7 @@
                     </div>
                     <div class="p-2 w-full">
                       <div class="relative">
-                        <label for="message" class="leading-7 mt-3 text-lg text-gray-200">Message</label>
+                        <label for="message" class="leading-7 mt-3 text-lg text-gray-700">Message</label>
                         <textarea id="message" name="message" placeholder="Enter your Query"
                           class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                           required></textarea>
