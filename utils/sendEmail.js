@@ -17,7 +17,6 @@ const sendEmail = (to, from, subject, html) => {
             console.log('Email could not be sent');
         }else{
             console.log('Email Sent !');
-            req.flash('message_taskForm', 'Email sent successfully !!');
         }
     });
 };
