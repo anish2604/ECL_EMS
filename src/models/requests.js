@@ -7,7 +7,7 @@ const requestSchema = new mongoose.Schema({
         required: true
     },
     requestFrom :{
-        type:String,
+        type: String,
         required: true
     },
     name :{

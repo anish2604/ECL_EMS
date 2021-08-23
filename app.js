@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const session = require('express-session');
+var flash = require('connect-flash');
 const mongoDBSession = require('connect-mongodb-session')(session);
 const crypto = require('crypto-js');
 const jwt = require('jsonwebtoken');
@@ -16,7 +17,6 @@ const cookieParser = require("cookie-parser");
 const auth = require("./src/middleware/auth");
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-const {flash} = require('express-flash-message');
 const Task = require("./src/models/Tasks");
 const Request = require("./src/models/requests");
 const Area = require("./src/models/areas");
@@ -72,7 +72,7 @@ app.use(session({
   }
 }))
 
-app.use(flash({sessionKeyName: 'flashMessage'}));
+app.use(flash());
 
 const isAuth = (req,res,next) => {
   if(req.session.isAuth){
@@ -107,7 +107,7 @@ app.get("/dashboard", isAuth, auth, (req, res) => {
 
 app.get("/assignTask", isAuth, auth, (req, res) => {
   //console.log(`this is the cookie used here ${req.cookies.jwt}`);
-  res.render("assignTask");
+  res.render("assignTask", {message : req.flash('message')});
 
 })
 
@@ -152,6 +152,10 @@ app.get("/viewTasks", isAuth, auth,(req, res) => {
   res.render("viewTasks");
 })
 
+app.get("/requestStatus", isAuth, auth,(req, res) => {
+  res.render("requestStatus");
+})
+
 app.get("/viewAssignedTasks", isAuth, auth, async(req, res) => {
   const email=req.session.user.email;
   const user = await Task.find({
@@ -171,13 +175,22 @@ app.get("/viewMyTasks", isAuth, auth, async(req, res) => {
   res.render("viewMyTasks",{title:'My Tasks', user:user});
 });
 
-
-app.get("/requestStatus", isAuth, auth, async(req, res) => {
-  email = req.session.user.email;
+app.get("/viewMyRequests", isAuth, auth, async(req, res) => {
+  const email=req.session.user.email;
   const user = await Request.find({
     requestFrom: email
   });
-  res.render("requestStatus",{user:user});
+  //console.log(user);
+  res.render("viewMyRequests",{ user:user});
+});
+
+
+app.get("/viewSubmittedRequests", isAuth, auth, async(req, res) => {
+  const email = req.session.user.email;
+  const user = await Request.find({
+    requestTo: email
+  });
+  res.render("viewSubmittedRequests",{user:user});
 })
 
 app.get("/viewRating", isAuth, auth, (req, res) => {
@@ -365,7 +378,8 @@ app.post("/assignTask", isAuth, auth, async (req, res) => {
 
     } else {
       console.log("Unsuccessful");
-      res.send("You are not allowed to assign Task to the selected user !!")
+      req.flash('message', 'You are not allowed to assign Task to the selected user !!');
+      res.redirect("/assignTask")
     }
 
     next();
@@ -397,7 +411,7 @@ app.post("/submitRequest",isAuth, auth, async (req, res) => {
       app.post("/sendRequest",async(req, res, next) => {
         const {rtype, leaveFrom, leaveTill, rmessage} = req.body;
         const from = 'ecl.ems2021@gmail.com';
-        const to = 'anishchattaraj2017@gmail.com';
+        const to = req.session.ReqTo.email;
         const output = `
         <p style="font-size: 1.05rem; color: #000;"><b>${req.session.user.manname} (${req.session.user.desg})</b> has requested for Leave!</p>
         <p style="color: #000;"><b>From:</b> ${leaveFrom} <br> <b>To:</b> ${leaveTill}</p>

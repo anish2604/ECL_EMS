@@ -112,6 +112,18 @@
       </div>
 
       <form class="" action="assignTask" method="post">
+        <!-- Flash Message -->
+        <% if(message.length > 0) { %>
+
+          <div class="alert alert-danger w-2/3 text-center mx-auto alert-dismissible fade show" role="alert">
+            <strong>Sorry!</strong> <%= message%>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+  
+          <% } %>
+          <!-- Flash Message end -->
 
         <h1 class="text-center mb-12 text-white">Assign Task</h1>
 

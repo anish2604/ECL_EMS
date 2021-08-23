@@ -9,7 +9,7 @@
   <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
   <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
   <link rel="shortcut icon" type="image/png" href="images\ECL-Logo-1.png">
-  <title>EMS | Request Status</title>
+  <title>EMS | Submitted Requests</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
@@ -53,7 +53,7 @@
           <li>
             <a href="#taskSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Manage Tasks</a>
             <ul class="collapse list-unstyled" id="taskSubmenu">
-              <li>
+              <li class="active">
                 <a href="/viewTasks">View Tasks</a>
               </li>
               <li>
@@ -68,7 +68,7 @@
           <li>
             <a href="#requestSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Leave Requests</a>
             <ul class="collapse list-unstyled" id="requestSubmenu">
-              <li class="active">
+              <li>
                 <a href="/requestStatus">Request Status</a>
               </li>
               <li>
@@ -114,7 +114,7 @@
 
     <!-- Page Content  -->
     <div id="content" style="padding: 0;">
- 
+
       <div class="container-fluid flex mt-4 mb-12">
 
         <button type="button" id="sidebarCollapse" class="flex-2 btn btn-primary btn-lg">
@@ -127,34 +127,53 @@
 
       </div>
 
-      <!-- Start of Cards -->
+      <h1 class="text-center py-10">Submitted Requests</h1>
+      <!--
+      <div class="container bg-blue-200 m-16 border-8"> -->
+      <div class="row px-20">
+        <div class="container bg-blue-100 rounded-2xl col-xs-12 px-10 py-10 mb-8" style="overflow-x:auto;">
+          <table class="table table-bordered border-black table-hover dt-responsive text-black w-full">
 
-      <div class="row">
-        <div class="col-lg-6 text-justify">
-          <div class="card text-white mx-auto bg-info mb-3" style="width: 20rem; margin: 10%;">
-            <div class="card-header text-center" style="font-size: 1.6rem;">My Requests</div>
-            <div class="card-body" style="background-color: #DFF9F9;">
-              <p class="card-text text-gray-700" style="font-size: 1.25rem;">In this section, you can go through the requests you have submitted.</p>
-              <div class="text-center">
-                <a href="/viewMyRequests" class="btn btn-info mx-auto">View <i class="fas fa-chevron-right"></i></a>
-              </div>
-            </div>
+            <thead>
+                <tr class="bg-gray-800 text-white text-center">
+                  <th>SNo.</th>
+                  <th>Sender</th>
+                  <th>Leave Type</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+  
+              <tbody>
+                <% if(user.length>0){ %>
+                  <% user.forEach(function(row,i){ %>
+                    <tr>
+                      <td class="text-center"><%= i+1 %></td>
+                      <td class="text-center"><%= row.name %></td>
+                      <td class="text-center"><%= row.leaveType %></td>
+                      <td class="text-center"><%= row.leaveFrom %></td>
+                      <td class="text-center"><%= row.leaveTill %></td>
+                      <td class="text-center"><%= row.leaveReason %></td>
+                    </tr>
+  
+                  <% }) %>
+                <% } %>
+              </tbody>
+
+          </table>
+        </div>
+
+        <div class="flex text-center relative mt-2 mb-16 pt-4 w-full">
+          <div class="realtive flex-1 lg:w-1/2 md:1/2 sm:1/2 mx-2">
+            <button type="back" class="mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg" onclick="goBack()">Back</button>
           </div>
         </div>
-        <div class="col-lg-6 text-justify mx-auto">
-          <div class="card mx-auto text-white  bg-success mb-3" style="width: 20rem; margin: 10%; font-size: 1rem;">
-            <div class="card-header text-center" style="font-size: 1.6rem;">Submitted Requests</div>
-            <div class="card-body" style="background-color: #E3F5DB;">
-              <p class="card-text text-gray-700" style="font-size: 1.25rem;">In this section, you can go through the requests submitted to you.</p>
-              <div class="text-center">
-                <a href="/viewSubmittedRequests" class="btn btn-success mx-auto">View <i class="fas fa-chevron-right"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
 
-      <!-- End of Cards -->
+    </div>
+
     <script>
       function goBack() {
         window.history.back();
