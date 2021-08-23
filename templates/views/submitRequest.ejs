@@ -120,6 +120,19 @@
 
       <form class="" action="submitRequest" method="post">
 
+        <!-- Starting of Flash message -->
+        <% if(message.length > 0) { %>
+
+          <div class="alert alert-danger w-2/3 text-center mx-auto alert-dismissible fade show" role="alert">
+            <strong>Sorry!</strong> <%= message %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <% } %>
+        <!-- Ending of Flash message end -->
+
         <h1 class="text-center mb-12 text-white">Submit Request</h1>
 
         <div class="relative mb-4 text-center">

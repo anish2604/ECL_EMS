@@ -107,13 +107,13 @@ app.get("/dashboard", isAuth, auth, (req, res) => {
 
 app.get("/assignTask", isAuth, auth, (req, res) => {
   //console.log(`this is the cookie used here ${req.cookies.jwt}`);
-  res.render("assignTask", {message : req.flash('message')});
+  res.render("assignTask", {message : req.flash('message_task')});
 
 })
 
 app.get("/submitRequest", isAuth, auth, (req, res) => {
   //console.log(`this is the cookie used here ${req.cookies.jwt}`);
-  res.render("submitRequest", {message : req.flash('message')});
+  res.render("submitRequest", {message : req.flash('message_request')});
 
 })
 
@@ -378,7 +378,7 @@ app.post("/assignTask", isAuth, auth, async (req, res) => {
 
     } else {
       console.log("Unsuccessful");
-      req.flash('message', 'You are not allowed to assign Task to the selected user !! Please try with anyone else');
+      req.flash('message_task', 'You are not allowed to assign Task to the selected user !! Please try a different user.');
       res.redirect("/assignTask");
     }
 
@@ -440,8 +440,8 @@ app.post("/submitRequest",isAuth, auth, async (req, res) => {
       })
     } else {
       console.log("Unsuccessful");
-      req.flash('message', 'You are not allowed to send leave request to the selected user !! Please try with anyone else');
-      res.redirect("/assignTask");
+      req.flash('message_request', 'You are not allowed to send leave request to the selected user !! Please try a different user.');
+      res.redirect("/submitRequest");
     }
     next();
 
