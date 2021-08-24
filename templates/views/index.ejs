@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+  <link rel="shortcut icon" type="image/png" href="images\ECL-Logo-1.png">
+  <title>ECL | EMS</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body onload="initClock()">
+
+  <!-- start of navbar -->
+
+  <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="images\ECL-Logo-1.png" class="d-inline-block align-top nav-logo" alt="image not found">
+      <label for="logo" class="logo-label">ECL | Employee Management System</label>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ml-auto mt-3 mb-3 mt-lg-3 mt-md-3 mt-sm-3">
+        <li>
+          <a href="login" class="nav-login">Login</a>
+        </li>
+      </ul>
+    </div>
+
+    </div>
+  </nav>
+
+  <!-- end of navbar -->
+
+
+  <!-- Start of Contact Button -->
+
+  <div id="hp-ctn-howItWorks">
+    <p><a href="contact_modal" type="button" class="text-white text-decoration:none hover:text-white hover:no-underline" data-toggle="modal" data-target="#exampleModalLong">Contact Us</a></p>
+  </div>
+
+  <!-- End of Contact Button -->
+
+  <!-- Start of Modal -->
+
+  <div class="modal fade relative" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content text-white">
+        <div class="modal-header rounded-xl bg-gray-800">
+          <h3 class="modal-title pl-6" id="exampleModalLongTitle">Get in Touch</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><i class="far fa-times-circle text-gray-100"></i></span>
+          </button>
+        </div>
+        <div class="modal-body bg-gray-200">
+          <section class="text-gray-400 body-font">
+            <div class="container px-4 py-8 mx-auto">
+              <form class="" action="/contactUS_index" method="post">
+                <div class="lg:w-full md:w-full mx-auto">
+                  <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-full">
+                      <div class="relative">
+                        <label for="name" class="leading-7 text-lg text-gray-700">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your Full Name"
+                          class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                          required>
+                      </div>
+                    </div>
+                    <div class="p-2 w-full">
+                      <div class="relative">
+                        <label for="email" class="leading-7 text-lg text-gray-700">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your Email id"
+                          class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                          required>
+                      </div>
+                    </div>
+                    <div class="p-2 w-full">
+                      <div class="relative">
+                        <label for="message" class="leading-7 mt-3 text-lg text-gray-700">Message</label>
+                        <textarea id="message" name="message" placeholder="Enter your Query"
+                          class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                          required></textarea>
+                      </div>
+                    </div>
+                    <div class="p-2 w-full">
+                      <button class="flex mx-auto mt-4 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- End of Modal -->
+
+  <!--start of welcome guest and date/time-->
+
+  <header>
+    <div class="main_bg">
+      <div class="container">
+        <div class="main_grid1">
+          <ol class="breadcrumb pull-left" style="padding: 5px;">
+
+            <li class="header-msg mr-auto text-indigo-500 px-2 py-2">Welcome !!</li>
+
+            <!-- Start of Date and Time -->
+
+            <li class="header-msg ml-auto text-indigo-500 px-2 py-2">
+              <div class="datetime">
+                <span id="dayname">Day</span>,
+                <span id="month">Month</span>
+                <span id="daynum">00</span>,
+                <span id="year">Year</span>&nbsp;
+                <span class="verticalLine">&nbsp;</span>
+                <span id="hour">00</span>:
+                <span id="minutes">00</span>:
+                <span id="seconds">00</span>
+                <span id="period">AM</span>
+              </div>
+            </li>
+
+            <!-- End of Date and Time -->
+
+          </ol>
+        </div>
+      </div>
+  </header>
+
+  <!-- end of welcome guest and date/time-->
+
+  <!-- start of content -->
+
+  <section class="text-gray-600 body-font">
+    <div class="container mx-auto flex px-5 py-20 md:flex-row flex-col items-center">
+      <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-700">Eastern Coalfields
+          <br class="hidden lg:inline-block">
+        </h1>
+        <p class="mb-8 leading-relaxed" style="text-align: justify;">Eastern Coalfields Limited (ECL) is a coal producer based in India. The company was founded in 1975 after nationalisation of coal mines in India. It operates coal mines in Jharkhand
+          and West Bengal states of India. It inherited all the private sector coal mines of the Raniganj Coalfield. It is one of the fully owned subsidiaries of Coal India Limited. The company has its headquarters at Sanctoria, in West Bengal.</p>
+        <div class="flex justify-center">
+
+        </div>
+      </div>
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img class="object-cover object-center rounded" alt="hero" src="images/ecl-2.png">
+      </div>
+    </div>
+  </section>
+
+  <!-- end of content -->
+
+  <!-- Start of Carousel -->
+
+  <section class="text-gray-700 body-font" style="background-color: #E1E5EA;">
+    <div class="container px-5 pt-12 pb-12 mb-20 mx-auto">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="mt-20 active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1" class="mt-20"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2" class="mt-20"></li>
+        </ol>
+        <div class="carousel-inner" style="height: 360px;">
+          <div class="carousel-item active">
+            <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-500 mb-8" viewBox="0 0 975.036 975.036">
+                <path
+                  d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                </path>
+              </svg>
+              <h3 class="pb-4 text-3xl">Employee Management System</h3>
+              <p class="leading-relaxed text-lg">It is specially developed for employees to manage tasks and leave requests in one place. Employees can assign tasks to other employees
+                based on workplace hierarchy and can view tasks assigned to and by an employee. They can also apply and view leave requests. It helps you to manage time and maintain records more efficiently.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-500 mb-8" viewBox="0 0 975.036 975.036">
+                <path
+                  d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                </path>
+              </svg>
+              <h3 class="pb-4 text-3xl">MISSION OF COAL INDIA</h3>
+              <p class="leading-relaxed text-lg">To produce and market the planned quantity of coal and coal products efficiently and economically in an eco-friendly manner with due regard to safety, quality and conservation.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-500 mb-8" viewBox="0 0 975.036 975.036">
+                <path
+                  d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+                </path>
+              </svg>
+              <h3 class="pb-4 text-3xl">VISION OF COAL INDIA</h3>
+              <p class="leading-relaxed text-lg">To emerge as a global player in the primary energy sector committed to provide energy curity to the country by attaining environmentally & socially sustainable growth through best practices from mine
+                to market.</p>
+            </div>
+          </div>
+
+        </div>
+        <a class="carousel-control-prev pr-20" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <i class="fas fa-less-than fa-lg text-gray-700 hover:text-gray-800" aria-hidden="true"></i>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next pl-20" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <i class="fas fa-greater-than fa-lg text-gray-700 hover:text-gray-800" aria-hidden="true"></i>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- End of Carousel -->
+
+  <!-- Start of EMS Description -->
+
+  <!-- <section class="text-gray-600 body-font bg-gray-900">
+    <div class="container px-5 pt-12 pb-12 mb-20 mx-auto">
+      <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-400 mb-8" viewBox="0 0 975.036 975.036">
+          <path
+            d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
+          </path>
+        </svg>
+        <p class="leading-relaxed text-lg">EMS stands for Employee Management System. This is a portal specially developed for employees to help them manage tasks and leave requests in one place. Employees can assign tasks to other employees based on
+          workplace hierarchy and also view status of tasks assigned to and assigned by the employee. Employees can also apply for and view leave requests. EMS helps you to manage time and maintain records more efficiently.</p>
+        <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"></span>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- End of EMS Description -->
+
+  <!-- start footer -->
+
+  <footer class="text-gray-600 body-font">
+
+    <div class="container px-2 py-10 pt-2 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col text-center">
+
+      <div class="col-lg-4 col-md-4 w-full px-4 pb-8">
+        <h3 class="title-font font-medium text-gray-700 tracking-widest text-sm mb-3 text-center">DISCLAIMER</h3>
+        <p class="f_para text-gray-600">Information on this site is believed to be accurate but ECL disclaims any liability for any errors or omissions that may occur from time to time.</p>
+      </div>
+      <div class="col-lg-4 col-md-4 w-full px-4 pb-8">
+        <h3 class="title-font font-medium text-gray-700 tracking-widest text-sm mb-3 text-center">ADDRESS</h3>
+        <p class="f_para text-gray-600">EASTERN COALFIELDS LIMITED, <br>Sanctoria, Post: Dishergarh, <br>Dist.: Burdwan, West Bengal,<br> PIN - 713 333</p>
+      </div>
+      <div class="col-lg-4 col-md-4 w-full px-4 pb-8">
+        <h3 class="title-font font-medium text-gray-700 tracking-widest text-sm mb-3 text-center">PHONE / FAX / GRAM</h3>
+        <p class="f_para text-gray-600"><i class="fa fa-phone-square"></i> &nbsp;Phone : (0341) 2520052-53, 2520414<br>
+          <i class="fa fa-fax"></i> &nbsp;Fax : (0341) 2523574<br>
+          <i class="fa fa-comments"></i> &nbsp;Gram : EASTCOAL
+        </p>
+      </div>
+    </div>
+
+    </div>
+
+
+    <!-- end of footer -->
+
+    <script type="text/javascript">
+      function updateClock() {
+        var now = new Date();
+        var dname = now.getDay(),
+          mo = now.getMonth(),
+          dnum = now.getDate(),
+          yr = now.getFullYear(),
+          hou = now.getHours(),
+          min = now.getMinutes(),
+          sec = now.getSeconds(),
+          pe = "AM";
+
+        if (hou >= 12) {
+          pe = "PM";
+        }
+        if (hou == 0) {
+          hou = 12;
+        }
+        if (hou > 12) {
+          hou = hou - 12;
+        }
+
+        Number.prototype.pad = function(digits) {
+          for (var n = this.toString(); n.length < digits; n = 0 + n);
+          return n;
+        }
+
+        var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+        var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+        var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+        for (var i = 0; i < ids.length; i++)
+          document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+      }
+
+      function initClock() {
+        updateClock();
+        window.setInterval("updateClock()", 1);
+      }
+    </script>
+
+</body>
+
+<!-- start of extreme footer -->
+
+<footer>
+  <div class="bg-gray-100" style="background-color: #222831;">
+    <div class="container mx-auto pt-4 py-2 px-5 flex flex-wrap flex-col sm:flex-row">
+      <span class="footer-ecl ml-4 text-xl text-gray-400">EMS</span>
+      </a>
+      <p class="footer-para text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0">©️ 2021 Eastern Coalfields Limited
+        <a href="http://www.easterncoal.gov.in/" class="text-gray-500 hover:text-gray-400 hover:no-underline ml-1" target="_blank" rel="noopener noreferrer">@ECL</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+</footer>
+
+<!-- end of extreme footer -->
+
+</html>

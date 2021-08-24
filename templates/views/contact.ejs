@@ -1,0 +1,280 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+  <link rel="shortcut icon" type="image/png" href="images\ECL-Logo-1.png">
+  <title>EMS | Contact</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-gray-900">
+
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>ECL</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <li>
+          <a href="/dashboard">Dashboard</a>
+        </li>
+        <!-- <p>Dummy Heading</p> -->
+
+        <div id="accordion">
+
+          <li>
+            <a href="#taskSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Manage Tasks</a>
+            <ul class="collapse list-unstyled" id="taskSubmenu">
+              <li>
+                <a href="/viewTasks">View Tasks</a>
+              </li>
+              <li>
+                <a href="/assignTask">Assign Tasks</a>
+              </li>
+              <!-- <li>
+                        <a href="#">Home 3</a>
+                    </li> -->
+            </ul>
+          </li>
+
+          <li>
+            <a href="#requestSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Leave Requests</a>
+            <ul class="collapse list-unstyled" id="requestSubmenu">
+              <li>
+                <a href="/requestStatus">Request Status</a>
+              </li>
+              <li>
+                <a href="/submitRequest">Submit Requests</a>
+              </li>
+              <!-- <li>
+                        <a href="#">Page 3</a>
+                    </li> -->
+            </ul>
+          </li>
+
+          <li>
+            <a href="#rateSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee Rating</a>
+            <ul class="collapse list-unstyled" id="rateSubmenu">
+              <li>
+                <a href="/viewRating">View Rating</a>
+              </li>
+              <li>
+                <a href="/rateEmployees">Rate Employees</a>
+              </li>
+              <!-- <li>
+                        <a href="#">Page 3</a>
+                    </li> -->
+            </ul>
+          </li>
+
+        </div>
+
+        <li class="active">
+          <a href="/contact">Contact</a>
+        </li>
+      </ul>
+
+      <ul class="list-unstyled CTAs">
+        <!-- <li>
+                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+            </li> -->
+        <li>
+          <a href="/logout" type="button" class="logout btn btn-danger">Logout</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" style="padding: 0;">
+
+      <div class="container-fluid flex mt-4 mb-12">
+
+        <button type="button" id="sidebarCollapse" class="flex-2 btn btn-primary btn-lg">
+          <i class="fas fa-align-left"></i>
+          <span>Menu</span>
+        </button>
+        <button class="flex-2 btn btn-light  btn-lg d-inline-block ml-auto" type="button">
+          <a href="/profile"><i class="fas fa-user-alt"></i></a>
+        </button>
+
+      </div>
+
+      <section class="text-gray-100 body-font relative">
+        <div class="container px-5 pt-8 pb-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-12">
+            <h1 class="sm:text-3xl md:text-5xl title-font font-medium mb-4 text-gray-100">Get in Touch</h1>
+          </div>
+          <form class="" action="/contactUS" method="post">
+          <div class="lg:w-1/2 md:w-2/3 mx-auto">
+            <div class="flex flex-wrap -m-2">
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="name" class="leading-7 text-lg text-gray-200">Name</label>
+                  <input type="text" id="name" name="name" placeholder="Enter your Full Name"
+                    class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="email" class="leading-7 text-lg text-gray-200">Email</label>
+                  <input type="email" id="email" name="email" placeholder="Enter your Email id"
+                    class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
+                </div>
+              </div>
+              <div class="p-2 w-full">
+                <div class="relative">
+                  <label for="message" class="leading-7 mt-3 text-lg text-gray-200">Message</label>
+                  <textarea id="message" name="message" placeholder="Enter your Query"
+                    class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" required></textarea>
+                </div>
+              </div>
+              <div class="p-2 w-full">
+                <button class="flex mx-auto mt-4 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        </div>
+      </section>
+
+      <hr class="hr-contact">
+
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 pt-16 pb-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-20">
+            <h1 class="text-4xl font-medium title-font mb-4 text-gray-100 tracking-widest">How to Find Us</h1>
+            <!-- <p class="lg:w-2/3 mx-auto leading-relaxed text-base"></p> -->
+          </div>
+          <div class="flex flex-wrap -m-4">
+            <div class="p-4 lg:w-1/2">
+              <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="images\Anish.JPG">
+                <div class="flex-grow sm:pl-8">
+                  <h2 class="title-font font-medium text-2xl text-gray-100">Anish Chattaraj</h2>
+                  <h4 class="text-gray-500 text-lg mb-3">Full Stack Web Developer</h4>
+                  <!-- <p class="mb-4"></p> -->
+                  <span class="inline-flex">
+                    <a class="text-gray-500">
+                      <i class="fab fa-facebook-square fa-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                      <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                      <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                      <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 lg:w-1/2">
+              <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200/bfbfbf/06080a.png&text=Profile+Picture">
+                <div class="flex-grow sm:pl-8">
+                  <h2 class="title-font font-medium text-2xl text-gray-100">Ankita Mandal</h2>
+                  <h3 class="text-gray-500 text-lg mb-3">Back-end Web Developer</h3>
+                  <!-- <p class="mb-4"></p> -->
+                  <span class="inline-flex">
+                    <a class="text-gray-500">
+                      <i class="fab fa-facebook-square fa-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                      <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                      <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                      <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 lg:w-1/2">
+              <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200/bfbfbf/06080a.png&text=Profile+Picture">
+                <div class="flex-grow sm:pl-8">
+                  <h1 class="title-font font-medium text-2xl text-gray-100">Anant Tiwari</h1>
+                  <h4 class="text-gray-500 text-lg mb-3">Front-end Web Developer</h4>
+                  <!-- <p class="mb-4"></p> -->
+                  <span class="inline-flex">
+                    <a class="text-gray-500">
+                      <i class="fab fa-facebook-square fa-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                      <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                      <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                      <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 lg:w-1/2">
+              <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200/bfbfbf/06080a.png&text=Profile+Picture">
+                <div class="flex-grow sm:pl-8">
+                  <h2 class="title-font font-medium text-2xl text-gray-100">Shreya Chatterjee</h2>
+                  <h3 class="text-gray-500 text-lg mb-3">Documentation</h3>
+                  <!-- <p class="mb-4"></p> -->
+                  <span class="inline-flex">
+                    <a class="text-gray-500">
+                      <i class="fab fa-facebook-square fa-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                      <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                      <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                      <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="p-2 w-1/2 pt-8 mt-16 text-center mx-auto border-t border-dotted border-gray-200 text-center">
+              <a class="text-indigo-500">ecl.ems2021@gmail.com</a>
+              <p class="leading-normal my-5">ECL HQ
+                <br>Sanctoria, Dishergarh
+              </p>
+            </div> -->
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('#sidebarCollapse').on('click', function() {
+        $('#sidebar').toggleClass('active');
+      });
+    });
+  </script>
+
+</body>
+
+</html>
