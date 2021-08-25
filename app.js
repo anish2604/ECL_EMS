@@ -26,7 +26,6 @@ const sendEmail = require('./utils/sendEmail');
 const sendRequest = require('./utils/sendRequest');
 const contactUS = require('./utils/contactUS');
 const contactUS_index = require('./utils/contactUS_index');
-const {mongourl} = require('./config/keys');
 const mongoURI = process.env.MONGO_CONNECT;
 
 var rank=0;
