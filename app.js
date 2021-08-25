@@ -26,7 +26,7 @@ const sendEmail = require('./utils/sendEmail');
 const sendRequest = require('./utils/sendRequest');
 const contactUS = require('./utils/contactUS');
 const contactUS_index = require('./utils/contactUS_index');
-
+const {mongourl} = require('./config/keys');
 const mongoURI = process.env.MONGO_CONNECT;
 
 var rank=0;
@@ -628,5 +628,3 @@ app.post("/contactUS_index", async(req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-// if(process.env.NODE_ENV === 'production') {}
