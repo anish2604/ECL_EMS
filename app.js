@@ -193,13 +193,13 @@ app.get("/viewSubmittedRequests", isAuth, auth, async(req, res) => {
   res.render("viewSubmittedRequests",{user:user});
 })
 
-app.get("/viewRating", isAuth, auth, (req, res) => {
-  res.render("viewRating");
-})
+// app.get("/viewRating", isAuth, auth, (req, res) => {
+//   res.render("viewRating");
+// })
 
-app.get("/rateEmployees", isAuth, auth, (req, res) => {
-  res.render("rateEmployees");
-})
+// app.get("/rateEmployees", isAuth, auth, (req, res) => {
+//   res.render("rateEmployees");
+// })
 
 app.get("/contact",isAuth,auth, (req,res) =>{
   res.render("contact");
