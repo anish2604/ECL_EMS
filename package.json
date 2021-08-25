@@ -11,6 +11,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "14.17.4"
+  },
   "dependencies": {
     "@sendgrid/mail": "^7.4.6",
     "axios": "^0.21.1",
